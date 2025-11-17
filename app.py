@@ -174,7 +174,7 @@ def create_venue_form():
 @ app.route('/venues/create', methods=['POST'])
 def create_venue_submission():
     # TODO: insert form data as a new Venue record in the db, instead
-    form = VenueForm(request.form, csrf_enabled=False)
+    form = VenueForm(request.form, csrf_enabled=True)
 
     if form.validate():
         try:
@@ -532,7 +532,7 @@ def create_artist_submission():
     # called upon submitting the new artist listing form
     # TODO: insert form data as a new Venue record in the db, instead
     # TODO: modify data to be the data object returned from db insertion
-    form = ArtistForm(request.form, csrf_enabled=False)
+    form = ArtistForm(request.form, csrf_enabled=True)
     if form.validate():
         try:
             artist = Artist(
@@ -622,7 +622,7 @@ def create_shows():
 def create_show_submission():
     # called to create new shows in the db, upon submitting new show listing form
     # TODO: insert form data as a new Show record in the db, instead
-    form = ShowForm(request.form, csrf_enabled=False)
+    form = ShowForm(request.form, csrf_enabled=True)
     if form.validate():
         try:
             show = Show(
